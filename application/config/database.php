@@ -73,12 +73,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 // Local
-	/*$db['default'] = array(
+	$db['default'] = array(
 		'dsn'	=> '',
 		'hostname' => 'localhost',
 		'username' => 'root',
 		'password' => '',
-		'database' => 'db_rrhh',
+		'database' => 'db_caminata',
 		'dbdriver' => 'mysqli',
 		'dbprefix' => '',
 		'pconnect' => FALSE,
@@ -93,11 +93,11 @@ $query_builder = TRUE;
 		'stricton' => FALSE,
 		'failover' => array(),
 		'save_queries' => TRUE
-	);*/
+	);
 // Local
 $query_builder = TRUE;
 // Remota
-	$db['default'] = array(
+	/*$db['default'] = array(
 		'dsn'	=> '',
 		'hostname' => '192.168.1.253',
 		'username' => 'admin',
@@ -117,5 +117,5 @@ $query_builder = TRUE;
 		'stricton' => FALSE,
 		'failover' => array(),
 		'save_queries' => TRUE
-	);
+	);*/
 // Remota
