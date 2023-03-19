@@ -216,6 +216,29 @@
                   <li class="sub-category">
                      <h3>General</h3>
                   </li>
+
+
+                  <li class="slide">
+                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i  class="side-menu__icon fe fe-user-check"></i><span
+                        class="side-menu__label">Clientes</span><i class="angle fe fe-chevron-right"></i></a>
+                     <ul class="slide-menu">
+                        <li class="side-menu-label1"><a href="javascript:void(0)"></a></li>
+                        <li><a href="<?= base_url(); ?>Clientes/" class="slide-item">Lista de clientes</a></li>
+                        <li><a href="<?= base_url(); ?>Clientes/agregar_cliente" class="slide-item">Agregar cliente</a></li>
+                     </ul>
+                  </li>
+
+                  <li class="slide">
+                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i  class="side-menu__icon fe fe-file"></i><span
+                        class="side-menu__label">Ordenes</span><i class="angle fe fe-chevron-right"></i></a>
+                     <ul class="slide-menu">
+                        <li class="side-menu-label1"><a href="javascript:void(0)"></a></li>
+                        <li><a href="<?= base_url(); ?>Ordenes/" class="slide-item">Lista de ordenes</a></li>
+                        <li><a href="<?= base_url(); ?>Ordenes/agregar_orden" class="slide-item">Nueva orden</a></li>
+                     </ul>
+                  </li>
+
+            <!--
                   <li>
                      <a class="side-menu__item" href="<?= base_url(); ?>Empleados/lista_empleados/">
                         <i class="side-menu__icon fe fe-users"></i><span class="side-menu__label">Empleados</span>
@@ -283,7 +306,7 @@
                      <a class="side-menu__item" href="<?= base_url(); ?>Calendario/">
                         <i class="side-menu__icon fe fe-calendar"></i><span class="side-menu__label">Vacaciones</span>
                      </a>
-                  </li>
+                  </li>-->
 
                </ul>
                <div class="slide-right" id="slide-right">

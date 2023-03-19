@@ -11,18 +11,16 @@ class Home extends CI_Controller {
 		$this->load->model("Permisos_Model");
 	}
 
-	/* public function index(){
-		$this->load->view('Base/header');
-		$this->load->view('Base/content');
-		$this->load->view('Base/footer');
-	} */
-
 	public function index(){
+		redirect(base_url()."Clientes/");
+	}
+
+	/*public function index(){
 		$data["empleados"] = $this->Empleados_Model->obtenerEmpleados();
 		$data["areas"] = $this->Empleados_Model->obtenerAreas();
 		// echo json_encode($data["empleados"]);
 		$this->load->view('Base/header');
 		$this->load->view('Empleados/lista_empleados', $data);
 		$this->load->view('Base/footer');
-	}
+	}*/
 }
