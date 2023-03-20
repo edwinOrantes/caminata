@@ -620,8 +620,9 @@
             <script src="<?php echo base_url(); ?>public/plugins/chart/rounded-barchart.js"></script>
             <script src="<?php echo base_url(); ?>public/plugins/chart/utils.js"></script>
 
-            <!-- INTERNAL SELECT2 JS -->
+            <!-- SELECT2 JS -->
             <script src="<?php echo base_url(); ?>public/plugins/select2/select2.full.min.js"></script>
+            <script src="<?php echo base_url(); ?>public/js/select2.js"></script>
 
             <!-- FORMVALIDATION JS -->
             <script src="<?php echo base_url(); ?>public/js/form-validation.js"></script>

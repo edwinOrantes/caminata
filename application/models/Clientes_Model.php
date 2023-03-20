@@ -4,20 +4,34 @@ class Clientes_Model extends CI_Model
 {
 
     public function obtenerClientes(){
-        $sql = "SELECT * FROM tbl_clientes WHERE estadoCliente = 1";
+        $sql = "SELECT * FROM tbl_emisores WHERE estadoCliente = 1";
         $datos = $this->db->query($sql);
         return $datos->result();
     }
 
     public function obtenerCodigo(){
-        $sql = "SELECT codigoCliente as codigo FROM tbl_clientes WHERE idCliente = (SELECT MAX(idCliente) FROM tbl_clientes)";
+        $sql = "SELECT codigoCliente as codigo FROM tbl_emisores WHERE idCliente = (SELECT MAX(idCliente) FROM tbl_emisores)";
         $datos = $this->db->query($sql);
         return $datos->row();
     }
     
     public function guardarCliente($data = null){
         if($data != null){
-            $sql = "INSERT INTO tbl_clientes(codigoCliente, nombreCliente, documentoCliente, telefonoCliente, direccionCliente)
+            $sql = "INSERT INTO tbl_emisores(codigoCliente, nombreCliente, documentoCliente, telefonoCliente, direccionCliente)
+            VALUES(?, ?, ?, ?, ?)";
+            if($this->db->query($sql, $data)){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    public function guardarReceptor($data = null){
+        if($data != null){
+            $sql = "INSERT INTO tbl_receptores(codigoCliente, nombreCliente, documentoCliente, telefonoCliente, direccionCliente)
             VALUES(?, ?, ?, ?, ?)";
             if($this->db->query($sql, $data)){
                 return true;
@@ -30,14 +44,14 @@ class Clientes_Model extends CI_Model
     }
 
     public function obtenerCliente($id = null){
-        $sql = "SELECT * FROM tbl_clientes WHERE idCliente = '$id' ";
+        $sql = "SELECT * FROM tbl_emisores WHERE idCliente = '$id' ";
         $datos = $this->db->query($sql);
         return $datos->row();
     }
     
     public function actualizarCliente($data = null){
         if($data != null){
-            $sql = "UPDATE tbl_clientes SET nombreCliente = ?, documentoCliente = ?, telefonoCliente = ?, direccionCliente = ?
+            $sql = "UPDATE tbl_emisores SET nombreCliente = ?, documentoCliente = ?, telefonoCliente = ?, direccionCliente = ?
                     WHERE idCliente = ?";
             if($this->db->query($sql, $data)){
                 return true;
@@ -52,7 +66,7 @@ class Clientes_Model extends CI_Model
     
     public function eliminarCliente($data = null){
         if($data != null){
-            $sql = "UPDATE tbl_clientes SET estadoCliente = ?  WHERE idCliente = ?";
+            $sql = "UPDATE tbl_emisores SET estadoCliente = ?  WHERE idCliente = ?";
             if($this->db->query($sql, $data)){
                 return true;
             }else{
@@ -61,6 +75,18 @@ class Clientes_Model extends CI_Model
         }else{
             return false;
         }
+    }
+
+    public function obtenerEmisores(){
+        $sql = "SELECT * FROM tbl_emisores";
+        $datos = $this->db->query($sql);
+        return $datos->result();
+    }
+
+    public function obtenerReceptores(){
+        $sql = "SELECT * FROM tbl_receptores";
+        $datos = $this->db->query($sql);
+        return $datos->result();
     }
 
 /*

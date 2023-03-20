@@ -20,7 +20,7 @@ class Clientes extends CI_Controller {
 	public function agregar_cliente(){
 		$cod = "";
 		$codigo = $this->Clientes_Model->obtenerCodigo();
-		if(is_null($codigo->codigo)){
+		if(is_null($codigo)){
 			$cod = 1000;
 		}else{
 			$cod = $codigo->codigo + 1;
@@ -36,6 +36,7 @@ class Clientes extends CI_Controller {
 		$datos = $this->input->post();
 		$resp = $this->Clientes_Model->guardarCliente($datos);
 		if ($resp){
+			$this->Clientes_Model->guardarReceptor($datos);
 			$this->session->set_flashdata("exito","Datos ingresados con exito");
 			redirect(base_url()."Clientes/agregar_cliente/");
 		}else{

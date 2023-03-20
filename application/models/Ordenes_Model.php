@@ -9,10 +9,35 @@ class Ordenes_Model extends CI_Model
         return $datos->result();
     }
 
-    public function obtenerOrdenes(){
-        $sql = "SELECT * FROM tbl_ordenes";
+    public function estadosOrdenes(){
+        $sql = "SELECT * FROM tbl_estado_orden";
         $datos = $this->db->query($sql);
         return $datos->result();
+    }
+
+    public function obtenerOrdenes(){
+        $sql = "SELECT
+                o.idOrden, o.codigoOrden, em.nombreCliente AS emisorOrden, em.direccionCliente AS origenOrden, r.nombreCliente as receptorOrden, o.fechaIngreso,
+                r.direccionCliente AS destinoOrden, o.tipoPago, o.estadoPago, o.estadoPago, o.otraDireccionOrden, o.estadoOrden, o.gestorOrden, eo.nombreEstado
+                FROM tbl_ordenes AS o
+                INNER JOIN tbl_emisores AS em ON(o.emisorOrden = em.idCliente)
+                INNER JOIN tbl_receptores AS r ON(o.receptorOrden = r.idCliente)
+                INNER JOIN tbl_estado_orden AS eo ON(o.estadoOrden = eo.idEstado)";
+        $datos = $this->db->query($sql);
+        return $datos->result();
+    }
+
+    public function obtenerOrden($id = null){
+        $sql = "SELECT
+                o.idOrden, o.codigoOrden, em.nombreCliente AS emisorOrden, em.direccionCliente AS origenOrden, r.nombreCliente as receptorOrden, o.fechaIngreso,
+                r.direccionCliente AS destinoOrden, o.tipoPago, o.estadoPago, o.estadoPago, o.otraDireccionOrden, o.estadoOrden, o.gestorOrden, eo.nombreEstado
+                FROM tbl_ordenes AS o
+                INNER JOIN tbl_emisores AS em ON(o.emisorOrden = em.idCliente)
+                INNER JOIN tbl_receptores AS r ON(o.receptorOrden = r.idCliente)
+                INNER JOIN tbl_estado_orden AS eo ON(o.estadoOrden = eo.idEstado)
+                WHERE o.idOrden = '$id' ";
+        $datos = $this->db->query($sql);
+        return $datos->row();
     }
 
     public function obtenerCodigo(){

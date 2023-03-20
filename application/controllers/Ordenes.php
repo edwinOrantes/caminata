@@ -29,12 +29,15 @@ class Ordenes extends CI_Controller {
             }
             $data["codigo"] = $cod;
         /* Creando codigo */
-        $data["clientes"] = $this->Clientes_Model->obtenerClientes();
+        
+		$data["emisores"] = $this->Clientes_Model->obtenerEmisores();
+        $data["receptores"] = $this->Clientes_Model->obtenerReceptores();
         $data["destinos"] = $this->Ordenes_Model->obtenerDestino();
+
 		$this->load->view('Base/header');
 		$this->load->view('Ordenes/agregar_orden', $data);
 		$this->load->view('Base/footer');
-		// echo json_encode($cod);
+		// echo json_encode($data);
 	}
 
 	public function guardar_orden(){
@@ -52,7 +55,11 @@ class Ordenes extends CI_Controller {
 	}
 
     public function detalle_orden($id = null){
-        echo $id;
+        $data["orden"] = $this->Ordenes_Model->obtenerOrden($id);
+		$this->load->view('Base/header');
+		$this->load->view('Ordenes/detalle_orden', $data);
+		$this->load->view('Base/footer');
+		// echo json_encode($data);
     }
 }
 

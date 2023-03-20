@@ -49,7 +49,7 @@ $(function(e) {
         table.row('.selected').remove().draw(false);
     });
 
-    $('#tblEmpleados').DataTable( {
+    $('#tblClientes').DataTable( {
         responsive: {
             details: {
                 display: $.fn.dataTable.Responsive.display.modal( {
@@ -84,6 +84,45 @@ $(function(e) {
         // buttons: ['copy', 'excel', 'pdf', 'colvis'],
         
     } );
+
+    $('#tblOrdenes').DataTable( {
+        responsive: {
+            details: {
+                display: $.fn.dataTable.Responsive.display.modal( {
+                    header: function ( row ) {
+                        var data = row.data();
+                        return '<strong>Datos de:</strong> '+data[0];
+                    }
+                } ),
+                renderer: $.fn.dataTable.Responsive.renderer.tableAll( {
+                    tableClass: 'table'
+                } )
+            }
+        },
+        columnDefs: [
+            { "width": "10%", "targets": 0 },
+            { "width": "15%", "targets": 1 },
+            { "width": "15%", "targets": 2 },
+            { "width": "10%", "targets": 3 },
+            { "width": "10%", "targets": 4 },
+            { "width": "20%", "targets": 5 },
+            { "width": "20%", "targets": 6 },
+          ],
+        language: {
+            searchPlaceholder: 'Buscar...',
+            scrollX: "100%",
+            sSearch: '',
+        },
+        stateSave: true,
+        language: {
+            "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        },
+        // dom: 'Bfrtip',
+        // buttons: ['copy', 'excel', 'pdf', 'colvis'],
+        
+    } );
+
+
 
     $('.tblPlus').DataTable( {
         stateSave: true,

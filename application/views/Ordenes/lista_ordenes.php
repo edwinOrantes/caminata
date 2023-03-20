@@ -44,38 +44,47 @@
                                 <h3 class="card-title text-dark">Lista de ordenes</h3>
                             </div>
                             <div class="card-body">
-                                <div class="">
+                                <div class="table-responsive">
                                     
                                 <?php
                                     if(sizeof($ordenes) > 0){
                                 ?>
 
-                                    <table class="table table-bordered text-nowrap border-bottom" id="tblEmpleados">
+                                    <table class="table table-bordered text-nowrap border-bottom" id="tblOrdenes">
                                         <thead>
                                             <tr class="bg-primary">
-                                                <th class="border-bottom-0 text-center text-white"><strong>Emisor</strong></th>
                                                 <th class="border-bottom-0 text-center text-white"><strong>Código</strong></th>
+                                                <th class="border-bottom-0 text-center text-white"><strong>Emisor</strong></th>
                                                 <th class="border-bottom-0 text-center text-white"><strong>Receptor</strong></th>
                                                 <th class="border-bottom-0 text-center text-white"><strong>Costo</strong></th>
                                                 <th class="border-bottom-0 text-center text-white"><strong>Estado del pago</strong></th>
                                                 <th class="border-bottom-0 text-center text-white"><strong>Estado del envio</strong></th>
-                                                <th class="border-bottom-0 text-center text-white"><strong>Gestor</strong></th>
                                                 <th class="border-bottom-0 text-center text-white"><strong>Dirección</strong></th>
                                                 <th class="border-bottom-0 text-center text-white"><strong>Opción</strong></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="border-bottom-0 text-center text-white"><strong>Emisor</strong></td>
-                                                <td class="border-bottom-0 text-center text-white"><strong>Código</strong></td>
-                                                <td class="border-bottom-0 text-center text-white"><strong>Receptor</strong></td>
-                                                <td class="border-bottom-0 text-center text-white"><strong>Costo</strong></td>
-                                                <td class="border-bottom-0 text-center text-white"><strong>Estado del pago</strong></td>
-                                                <td class="border-bottom-0 text-center text-white"><strong>Estado del envio</strong></td>
-                                                <td class="border-bottom-0 text-center text-white"><strong>Gestor</strong></td>
-                                                <td class="border-bottom-0 text-center text-white"><strong>Dirección</strong></td>
-                                                <td class="border-bottom-0 text-center text-white"><strong>Opción</strong></td>
-                                            </tr>
+                                            <?php
+                                                $estadoOrden = "";
+                                                foreach ($ordenes as $row) {
+                                            ?>
+                                                <tr>
+                                                    <td class="border-bottom-0 text-center"><?php echo $row->codigoOrden; ?></td>
+                                                    <td class="border-bottom-0 text-center"><?php echo $row->emisorOrden; ?></td>
+                                                    <td class="border-bottom-0 text-center"><?php echo $row->receptorOrden; ?></td>
+                                                    <td class="border-bottom-0 text-center"><?php echo "$50.00"; ?></td>
+                                                    <td class="border-bottom-0 text-center"><?php echo $row->estadoPago; ?></strong></td>
+                                                    <td class="border-bottom-0 text-center"><?php echo $row->nombreEstado; ?></strong></td>
+                                                    <td class="border-bottom-0 text-center"><?php echo $row->destinoOrden; ?></td>
+                                                    <td class="border-bottom-0 text-center">
+                                                        <a href="<?php echo base_url(); ?>Ordenes/detalle_orden/<?php echo $row->idOrden;?>/" class="text-primary" title="Ver detalle"><i class="fa fa-eye"></i></a>
+                                                        <a href="#editarCliente" id="btnEditarDatos" data-bs-toggle="modal" class="text-primary" title="Editar datos"><i class="fa fa-edit"></i></a>
+                                                        <a href="#eliminarCliente" id="btnEliminarDatos" data-bs-toggle="modal" class="text-danger" title="Eliminar cliente"><i class="fa fa-trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                                }
+                                            ?>
                                         </tbody>
                                     </table>
                                 <?php 

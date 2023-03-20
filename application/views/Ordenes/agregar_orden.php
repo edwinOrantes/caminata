@@ -60,12 +60,12 @@
                                         <div class="valid-feedback">Muy bien!</div>
                                     </div>
 
-                                    <div class="col-xl-5 mb-3">
+                                    <div class="col-xl-5 mb-3" id="emisor">
                                         <label for="emisorOrden">Emisor</label>
-                                        <select class="form-control" id="emisorOrden" name="emisorOrden" required>
+                                        <select class="form-control select2-show-search" id="emisorOrden" name="emisorOrden" required>
                                             <option value="">.:: Seleccionar ::.</option>
                                             <?php
-                                                foreach ($clientes as $row) {
+                                                foreach ($emisores as $row) {
                                             ?>
                                             <option value="<?php echo $row->idCliente;?>"><?php echo $row->nombreCliente;?></option>
                                             <?php
@@ -78,10 +78,10 @@
 
                                     <div class="col-xl-5 mb-3">
                                         <label for="receptorOrden">Receptor</label>
-                                        <select class="form-control" id="receptorOrden" name="receptorOrden" required>
+                                        <select class="form-control select2-show-search" id="receptorOrden" name="receptorOrden" required>
                                             <option value="">.:: Seleccionar ::.</option>
                                             <?php
-                                                foreach ($clientes as $row) {
+                                                foreach ($receptores as $row) {
                                             ?>
                                             <option value="<?php echo $row->idCliente;?>"><?php echo $row->nombreCliente;?></option>
                                             <?php
@@ -181,4 +181,3 @@
     </div>
 </div>
 <!--app-content closed-->
-
