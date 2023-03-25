@@ -6,9 +6,9 @@ class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		date_default_timezone_set('America/El_Salvador');
-		$this->load->model("Empleados_Model");
-		$this->load->model("Incapacidades_Model");
-		$this->load->model("Permisos_Model");
+		//$this->load->model("Empleados_Model");
+		//$this->load->model("Incapacidades_Model");
+		//$this->load->model("Permisos_Model");
 	}
 
 	public function index(){

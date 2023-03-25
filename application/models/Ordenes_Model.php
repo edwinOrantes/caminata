@@ -62,6 +62,57 @@ class Ordenes_Model extends CI_Model
         }
     }
 
+    public function obtenerDetalleOrden($id = null){
+        if($id != null){
+            $sql = "SELECT * FROM tbl_detalle_orden WHERE idOrden = '$id' AND eliminadoArticulo = '1' ";
+            $datos = $this->db->query($sql);
+            return $datos->result();
+        }else{
+            return false;
+        }
+    }
+
+    public function guardarDetalleOrden($data = null){
+        if($data != null){
+            $sql = "INSERT INTO tbl_detalle_orden(idOrden, nombreArticulo, pesoArticulo, precioKilo, totalArticulo, detalleArticulo)
+                    VALUES(?, ?, ?, ?, ?, ?)";
+            if($this->db->query($sql, $data)){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    public function actualizarDetalleOrden($data = null){
+        if($data != null){
+            $sql = "UPDATE tbl_detalle_orden SET nombreArticulo = ?, pesoArticulo = ?, precioKilo = ?, totalArticulo = ?, 
+                    detalleArticulo = ? WHERE idDetalle = ?";
+            if($this->db->query($sql, $data)){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    public function eliminarDetalleOrden($data = null){
+        if($data != null){
+            $sql = "UPDATE tbl_detalle_orden SET eliminadoArticulo = ?  WHERE idDetalle = ?";
+            if($this->db->query($sql, $data)){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
 /*
     
     public function guardarCliente($data = null){

@@ -51,16 +51,62 @@ class Ordenes extends CI_Controller {
 			redirect(base_url()."Ordenes/agregar_orden/");
 		}
 		// echo json_encode($datos);
-	
+		
 	}
-
+	
     public function detalle_orden($id = null){
-        $data["orden"] = $this->Ordenes_Model->obtenerOrden($id);
+		$data["orden"] = $this->Ordenes_Model->obtenerOrden($id);
+		$data["articulos"] = $this->Ordenes_Model->obtenerDetalleOrden($id);
+        $data["idOrden"] = $id;
 		$this->load->view('Base/header');
 		$this->load->view('Ordenes/detalle_orden', $data);
 		$this->load->view('Base/footer');
 		// echo json_encode($data);
     }
+	
+	public function guardar_articulo(){
+		$datos = $this->input->post();
+		$orden = $datos["idOrden"];
+		$resp = $this->Ordenes_Model->guardarDetalleOrden($datos);
+		if ($resp){
+			$this->session->set_flashdata("exito","Datos ingresados con exito");
+			redirect(base_url()."Ordenes/detalle_orden/".$orden."/");
+		}else{
+			$this->session->set_flashdata("error","Error al registrar los datos");
+			redirect(base_url()."Ordenes/detalle_orden/".$orden."/");
+		}
+		// echo json_encode($datos);
+	}
+	
+	public function editar_articulo(){
+		$datos = $this->input->post();
+		$orden = $datos["idOrden"];
+		unset($datos["idOrden"]);
+		$resp = $this->Ordenes_Model->actualizarDetalleOrden($datos);
+		if ($resp){
+			$this->session->set_flashdata("exito","Datos actualizados con exito");
+			redirect(base_url()."Ordenes/detalle_orden/".$orden."/");
+		}else{
+			$this->session->set_flashdata("error","Error al actualizar los datos");
+			redirect(base_url()."Ordenes/detalle_orden/".$orden."/");
+		}
+		// echo json_encode($datos);
+	}
+	
+	public function eliminar_articulo(){
+		$datos = $this->input->post();
+		$orden = $datos["idOrden"];
+		unset($datos["idOrden"]);
+		$resp = $this->Ordenes_Model->eliminarDetalleOrden($datos);
+		if ($resp){
+			$this->session->set_flashdata("exito","Datos eliminados con exito");
+			redirect(base_url()."Ordenes/detalle_orden/".$orden."/");
+		}else{
+			$this->session->set_flashdata("error","Error al eliminados los datos");
+			redirect(base_url()."Ordenes/detalle_orden/".$orden."/");
+		}
+		// echo json_encode($datos);
+	}
 }
 
 ?>
