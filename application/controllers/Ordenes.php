@@ -64,7 +64,7 @@ class Ordenes extends CI_Controller {
 		// echo json_encode($data);
     }
 	
-	public function guardar_articulo(){
+/* 	public function guardar_articulo(){
 		$datos = $this->input->post();
 		$orden = $datos["idOrden"];
 		$resp = $this->Ordenes_Model->guardarDetalleOrden($datos);
@@ -76,6 +76,27 @@ class Ordenes extends CI_Controller {
 			redirect(base_url()."Ordenes/detalle_orden/".$orden."/");
 		}
 		// echo json_encode($datos);
+	} */
+	
+	public function guardar_articulo(){
+		if($this->input->is_ajax_request()){
+			$datos = $this->input->post();		
+			$resp = $this->Ordenes_Model->guardarDetalleOrden($datos);
+			if($resp){
+				$respuesta = array('estado' => 1, 'respuesta' => 'Exito');
+				header("content-type:application/json");
+				print json_encode($respuesta);
+			}else{
+				$respuesta = array('estado' => 0, 'respuesta' => 'Error');
+				header("content-type:application/json");
+				print json_encode($respuesta);
+			}
+		}
+		else{
+			$respuesta = array('estado' => 0, 'respuesta' => 'Error');
+			header("content-type:application/json");
+			print json_encode($respuesta);
+		}
 	}
 	
 	public function editar_articulo(){

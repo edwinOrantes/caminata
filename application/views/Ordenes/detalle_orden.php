@@ -148,12 +148,12 @@ $costoTotal = 0;
 
 <!-- Modales -->
     <!-- Agregar articulo -->
-        <div class="modal fade" id="agregarArticulo" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal fade" data-backdrop="static" data-keyboard="false" id="agregarArticulo" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg " role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Detalle del articulo</h5>
-                        <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                        <button class="btn-close close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
                     </div>
                     <form class="needs-validation" method="post" action="<?= base_url(); ?>Ordenes/guardar_articulo" novalidate>
                         <div class="modal-body">
@@ -187,7 +187,7 @@ $costoTotal = 0;
 
                                 <div class="col-xl-12 mb-3">
                                     <label for="detallesArticulo">Detalles</label>
-                                    <input type="text" class="form-control" id="detallesArticulo" name="detallesArticulo" required>
+                                    <textarea class="form-control" id="detallesArticulo" name="detallesArticulo" rows="5" required></textarea>
                                     <div class="valid-feedback">Muy bien!</div>
                                 </div>
                                 
@@ -196,8 +196,8 @@ $costoTotal = 0;
 
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary">Guardar datos</button>
-                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary" id="guardarDatosArticulo">Guardar datos</button>
+                            <button class="btn btn-secondary close" data-bs-dismiss="modal">Cancelar</button>
                         </div>
                     </form>
                 </div>
@@ -294,6 +294,78 @@ $costoTotal = 0;
 <!-- Modales -->
 
 <script>
+    $(document).on("click", "#guardarDatosArticulo", function(event) {
+        event.preventDefault();
+        var datos = {
+            idOrden : $('#idOrden').val(),
+            nombre: $('#nombreArticulo').val(),
+            peso: $('#pesoArticulo').val(),
+            precio : $('#precioKilo').val(),
+            total : $('#totalEnvio').val(),
+            detalles : $('#detallesArticulo').val(),
+              
+        };
+
+        $.ajax({
+            url: "../../guardar_articulo",
+            type: "POST",
+            data: datos,
+            success:function(respuesta){
+                var registro = eval(respuesta);
+                if (Object.keys(registro).length > 0){
+                    if(registro.estado == 1){
+                        toastr.remove();
+                        toastr.options = {
+                            "positionClass": "toast-top-left",
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "1000",
+                            "extendedTimeOut": "50",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                            },
+                        toastr.success('Se guardo el articulo', 'Aviso!');
+                    }else{
+                        toastr.remove();
+                        toastr.options = {
+                            "positionClass": "toast-top-left",
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "1000",
+                            "extendedTimeOut": "50",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                            },
+                        toastr.error('No se guardo el articulo...', 'Aviso!');
+                    }
+                }else{
+                    toastr.remove();
+                    toastr.options = {
+                        "positionClass": "toast-top-left",
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "1000",
+                        "extendedTimeOut": "50",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                        },
+                    toastr.error('No se guardo el articulo...', 'Aviso!');
+                }
+            }
+        });
+    });
+
+    $(document).on('click', '.close', function(event) {
+        event.preventDefault();
+        location.reload();
+    });
+
     $(document).on("change", "#pesoArticulo", function(event) {
         event.preventDefault();
         var peso = parseFloat($(this).val());
@@ -347,3 +419,4 @@ $costoTotal = 0;
     });
 
 </script>
+
