@@ -48,7 +48,7 @@
                                     <?php
                                         if(sizeof($clientes) != 0){
                                     ?>
-                                    <table class="table table-bordered text-nowrap border-bottom" id="tbl_clientes">
+                                    <table class="table table-bordered text-nowrap border-bottom basic-datatable" id="tbl_clientes">
                                         <thead>
                                             <tr class="bg-primary">
                                                 <th class="border-bottom-0 text-white"><strong>Cliente</strong></th>
@@ -74,9 +74,9 @@
                                                             <input type="hidden" id="direccion" value="<?= $row->direccionCliente;?>">
                                                             <input type="hidden" id="idCliente" value="<?= $row->idCliente;?>">
 
-                                                            <a href="<?php echo base_url(); ?>Clientes/detalle_cliente/<?php echo $row->idCliente;?>/" class="text-primary" title="Ver detalle"><i class="fa fa-eye"></i></a>
-                                                            <a href="#editarCliente" id="btnEditarDatos" data-bs-toggle="modal" class="text-primary" title="Editar datos"><i class="fa fa-edit"></i></a>
-                                                            <a href="#eliminarCliente" id="btnEliminarDatos" data-bs-toggle="modal" class="text-danger" title="Eliminar cliente"><i class="fa fa-trash"></i></a>
+                                                            <a href="<?php echo base_url(); ?>Clientes/detalle_cliente/<?php echo $row->idCliente;?>/" class="text-primary" title="Ver detalle"><i class="fa fa-eye iconoPlus"></i></a>
+                                                            <a href="#editarCliente" id="btnEditarDatos" data-bs-toggle="modal" class="text-primary" title="Editar datos"><i class="fa fa-edit iconoPlus"></i></a>
+                                                            <a href="#eliminarCliente" id="btnEliminarDatos" data-bs-toggle="modal" class="text-danger" title="Eliminar cliente"><i class="fa fa-trash iconoPlus"></i></a>
                                                         </td>
                                                     </tr>
                 
@@ -113,9 +113,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Datos del empleado</h5>
-                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
+                    <a class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
                 </div>
                     <form class="needs-validation" method="post" action="<?= base_url(); ?>Clientes/actualizar_empleado" novalidate>
                         <div class="modal-body">   
@@ -165,9 +163,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Advertencia</h5>
-                        <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
+                        <a class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </a>
                     </div>
                     <div class="modal-body">
                         <p class="text-center">¿Estas seguro de eliminar este registro?</p>

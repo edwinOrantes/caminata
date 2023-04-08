@@ -77,9 +77,9 @@
                                                     <td class="border-bottom-0 text-center"><?php echo $row->nombreEstado; ?></strong></td>
                                                     <td class="border-bottom-0 text-center"><?php echo $row->destinoOrden; ?></td>
                                                     <td class="border-bottom-0 text-center">
-                                                        <a href="<?php echo base_url(); ?>Ordenes/detalle_orden/<?php echo $row->idOrden;?>/" class="text-primary" title="Ver detalle"><i class="fa fa-eye"></i></a>
-                                                        <a href="#editarCliente" id="btnEditarDatos" data-bs-toggle="modal" class="text-primary" title="Editar datos"><i class="fa fa-edit"></i></a>
-                                                        <a href="#eliminarCliente" id="btnEliminarDatos" data-bs-toggle="modal" class="text-danger" title="Eliminar cliente"><i class="fa fa-trash"></i></a>
+                                                        <a href="<?php echo base_url(); ?>Ordenes/detalle_orden/<?php echo $row->idOrden;?>/" class="text-primary" title="Ver detalle"><i class="fa fa-eye iconoPlus"></i></a>
+                                                        <a href="#editarCliente" id="btnEditarDatos" data-bs-toggle="modal" class="text-primary" title="Editar datos"><i class="fa fa-edit iconoPlus"></i></a>
+                                                        <a href="#eliminarCliente" id="btnEliminarDatos" data-bs-toggle="modal" class="text-danger" title="Eliminar cliente"><i class="fa fa-trash iconoPlus"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php

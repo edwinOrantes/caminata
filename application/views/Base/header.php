@@ -238,6 +238,30 @@
                      </ul>
                   </li>
 
+                  <li class="slide">
+                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i  class="side-menu__icon fe fe-users"></i><span
+                        class="side-menu__label">Empleados</span><i class="angle fe fe-chevron-right"></i></a>
+                     <ul class="slide-menu">
+                        <li class="side-menu-label1"><a href="javascript:void(0)"></a></li>
+                        <li class="slide-item"> <a href="<?php echo base_url(); ?>Empleado/">Agregar empleado</a> </li>
+                        <li class="slide-item"> <a href="<?php echo base_url(); ?>Empleado/lista_empleados">Lista empleados</a> </li>
+                        <li class="slide-item"> <a href="<?php echo base_url(); ?>Empleado/cargos_empleados">Cargos</a> </li>
+                     </ul>
+                  </li>
+
+
+                  <li class="slide">
+                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i  class="side-menu__icon fa fa-cog"></i><span
+                        class="side-menu__label">Configuración</span><i class="angle fe fe-chevron-right"></i></a>
+                     <ul class="slide-menu">
+                        <li class="side-menu-label1"><a href="javascript:void(0)"></a></li>
+                        <li class="slide-item"><a href="<?php echo base_url(); ?>Accesos/">Accesos</a></li>
+                        <li class="slide-item"><a href="<?php echo base_url(); ?>Usuarios/gestion_usuarios">Usuarios</a></li>
+                        <li class="slide-item"><a href="<?php echo base_url(); ?>Permisos/">Permisos</a></li>
+	                     <li class="slide-item"><a href="<?php echo base_url(); ?>Herramientas/movimientos_hojas">Movimientos hoja</a></li>
+                     </ul>
+                  </li>
+
             <!--
                   <li>
                      <a class="side-menu__item" href="<?= base_url(); ?>Empleados/lista_empleados/">
