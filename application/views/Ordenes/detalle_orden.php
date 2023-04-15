@@ -42,7 +42,12 @@ $costoTotal = 0;
                             <li class="breadcrumb-item active" aria-current="page">Datos de la orden</li>
                         </ol>
                     </div>
-                    <button class="btn btn-info mt-3" data-bs-toggle="modal" data-bs-target="#agregarArticulo" > Agregar articulos <i class="fe fe-plus"></i></button>
+                    <div class="text-right">
+
+                        <a class="btn btn-info mt-3 text-white" data-bs-toggle="modal" data-bs-target="#crearEtiqueta" > Crear etiquetas <i class="fe fe-file"></i></a>
+                        <button class="btn btn-info mt-3" data-bs-toggle="modal" data-bs-target="#agregarArticulo" > Agregar articulos <i class="fe fe-plus"></i></button>
+                        
+                    </div>
                 </div>
             <!-- page-header end -->
 
@@ -290,6 +295,36 @@ $costoTotal = 0;
             </div>
         </div>
     <!-- Eliminar articulo -->
+
+    <!-- Crear etiqueta -->
+        <div class="modal fade" id="crearEtiqueta" tabindex="-1" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">¿Cuantas etiquetas se crearan?</h5>
+                        <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                    </div>
+                    <form class="needs-validation" method="post" action="<?= base_url(); ?>Ordenes/etiquetas_articulo" novalidate>
+                        <div class="modal-body">
+                            <div class="form-row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="nombreArticulo">Cantidad</label>
+                                    <input type="number" value="1" min="1" class="form-control" id="cantidadEtiquetas" name="cantidadEtiquetas" placeholder="Cantidad" required>
+                                    <input type="hidden" value="<?php echo $idOrden; ?>" id="idOrden" name="idOrden">
+                                    <div class="valid-feedback">Muy bien!</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Crear</button>
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <!-- Crear etiqueta -->
 
 <!-- Modales -->
 

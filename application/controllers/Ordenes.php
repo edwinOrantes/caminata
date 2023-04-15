@@ -64,6 +64,7 @@ class Ordenes extends CI_Controller {
 		// echo json_encode($data);
     }
 	
+	
 /* 	public function guardar_articulo(){
 		$datos = $this->input->post();
 		$orden = $datos["idOrden"];
@@ -127,6 +128,21 @@ class Ordenes extends CI_Controller {
 			redirect(base_url()."Ordenes/detalle_orden/".$orden."/");
 		}
 		// echo json_encode($datos);
+	}
+	
+	public function etiquetas_articulo(){
+		$datos = $this->input->post();
+		/* $orden = $datos["idOrden"];
+		unset($datos["idOrden"]);
+		$resp = $this->Ordenes_Model->eliminarDetalleOrden($datos);
+		if ($resp){
+			$this->session->set_flashdata("exito","Datos eliminados con exito");
+			redirect(base_url()."Ordenes/detalle_orden/".$orden."/");
+		}else{
+			$this->session->set_flashdata("error","Error al eliminados los datos");
+			redirect(base_url()."Ordenes/detalle_orden/".$orden."/");
+		} */
+		echo json_encode($datos);
 	}
 }
 
