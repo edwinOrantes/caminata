@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-04-2023 a las 01:48:45
+-- Tiempo de generación: 16-04-2023 a las 18:09:10
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.0.25
 
@@ -213,6 +213,28 @@ INSERT INTO `tbl_empleados` (`idEmpleado`, `nombreEmpleado`, `edadEmpleado`, `te
 (22, 'Jose Angel ', 26, '7031-9189', 1, 'Masculino', 1, 'Lot. Pueblo Nuevo KM112 Salida a San Miguel Usulutan', '2023-02-01 06:00:00'),
 (23, 'Axwell Alexander Cortez Rodrigues', 20, '7895-6789', 1, 'Masculino', 1, 'San Miguel', '2023-04-07 21:52:43'),
 (24, 'Chester Rodriguez', 25, '7895-6321', 4, 'Masculino', 0, 'San Miguel', '2023-04-07 22:31:02');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_empresa`
+--
+
+CREATE TABLE `tbl_empresa` (
+  `idEmpresa` int(11) NOT NULL,
+  `nombreEmpresa` text NOT NULL,
+  `telefonoEmpresa` varchar(15) NOT NULL,
+  `direccionEmpresa` text NOT NULL,
+  `logoEmpresa` text NOT NULL,
+  `creadaEmpresa` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_empresa`
+--
+
+INSERT INTO `tbl_empresa` (`idEmpresa`, `nombreEmpresa`, `telefonoEmpresa`, `direccionEmpresa`, `logoEmpresa`, `creadaEmpresa`) VALUES
+(1, 'Agencia de viajes', '78956423', 'Usulutan', 'logo_empresa', '2023-04-16 16:05:57');
 
 -- --------------------------------------------------------
 
@@ -550,6 +572,12 @@ ALTER TABLE `tbl_empleados`
   ADD PRIMARY KEY (`idEmpleado`);
 
 --
+-- Indices de la tabla `tbl_empresa`
+--
+ALTER TABLE `tbl_empresa`
+  ADD PRIMARY KEY (`idEmpresa`);
+
+--
 -- Indices de la tabla `tbl_estado_orden`
 --
 ALTER TABLE `tbl_estado_orden`
@@ -624,6 +652,12 @@ ALTER TABLE `tbl_emisores`
 --
 ALTER TABLE `tbl_empleados`
   MODIFY `idEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_empresa`
+--
+ALTER TABLE `tbl_empresa`
+  MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_estado_orden`
