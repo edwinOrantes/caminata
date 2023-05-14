@@ -32,7 +32,7 @@
                                 <li class="breadcrumb-item active" aria-current="page">Lista ordenes</li>
                             </ol>
                         </div>
-                        <a href="<?php echo base_url(); ?>Ordenes/agregar_orden" class="btn btn-primary"> Agregar orden <i class="fe fe-user-plus"></i></a>
+                        <a href="<?php echo base_url(); ?>Ordenes/agregar_orden" class="btn btn-primary"> Agregar orden <i class="fe fe-file-plus iconoPlus"></i></a>
                     </div>
                 <!-- page-header end -->
 
@@ -72,14 +72,21 @@
                                                     <td class="border-bottom-0 text-center"><?php echo $row->codigoOrden; ?></td>
                                                     <td class="border-bottom-0 text-center"><?php echo $row->emisorOrden; ?></td>
                                                     <td class="border-bottom-0 text-center"><?php echo $row->receptorOrden; ?></td>
-                                                    <td class="border-bottom-0 text-center"><?php echo "$50.00"; ?></td>
+                                                    <td class="border-bottom-0 text-center">$<?php echo number_format($row->totalEnvio, 2); ?></td>
                                                     <td class="border-bottom-0 text-center"><?php echo $row->estadoPago; ?></strong></td>
                                                     <td class="border-bottom-0 text-center"><?php echo $row->nombreEstado; ?></strong></td>
                                                     <td class="border-bottom-0 text-center"><?php echo $row->destinoOrden; ?></td>
                                                     <td class="border-bottom-0 text-center">
+                                                        <?php
+                                                            if($row->creoQR == 1){
+                                                                echo '<a href="'.base_url().'Ordenes/etiqueta_pdf/'.$row->idOrden.'/" class="text-primary" title="Ver etiquetas"><i class="fa fa-file iconoPlus"></i></a>';
+                                                            }
+                                                        ?>
+                                                        
+                                                        
                                                         <a href="<?php echo base_url(); ?>Ordenes/detalle_orden/<?php echo $row->idOrden;?>/" class="text-primary" title="Ver detalle"><i class="fa fa-eye iconoPlus"></i></a>
-                                                        <a href="#editarCliente" id="btnEditarDatos" data-bs-toggle="modal" class="text-primary" title="Editar datos"><i class="fa fa-edit iconoPlus"></i></a>
-                                                        <a href="#eliminarCliente" id="btnEliminarDatos" data-bs-toggle="modal" class="text-danger" title="Eliminar cliente"><i class="fa fa-trash iconoPlus"></i></a>
+                                                        <!-- <a href="#editarCliente" id="btnEditarDatos" data-bs-toggle="modal" class="text-primary" title="Editar datos"><i class="fa fa-edit iconoPlus"></i></a>
+                                                        <a href="#eliminarCliente" id="btnEliminarDatos" data-bs-toggle="modal" class="text-danger" title="Eliminar cliente"><i class="fa fa-trash iconoPlus"></i></a> -->
                                                     </td>
                                                 </tr>
                                             <?php

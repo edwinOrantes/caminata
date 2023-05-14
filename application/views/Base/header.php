@@ -32,7 +32,7 @@
 
       <!-- JQUERY JS -->
       <script src="<?php echo base_url(); ?>public/js/jquery.min.js"></script>
-
+      
    </head>
    <body class="app sidebar-mini ltr light-mode">
       <!-- global-loader -->
@@ -233,8 +233,18 @@
                         class="side-menu__label">Ordenes</span><i class="angle fe fe-chevron-right"></i></a>
                      <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)"></a></li>
-                        <li><a href="<?= base_url(); ?>Ordenes/" class="slide-item">Lista de ordenes</a></li>
                         <li><a href="<?= base_url(); ?>Ordenes/agregar_orden" class="slide-item">Nueva orden</a></li>
+                        <li><a href="<?= base_url(); ?>Ordenes/" class="slide-item">Lista de ordenes</a></li>
+                     </ul>
+                  </li>
+
+                  <li class="slide">
+                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i  class="side-menu__icon fe fe-file-plus"></i><span
+                        class="side-menu__label">Envios</span><i class="angle fe fe-chevron-right"></i></a>
+                     <ul class="slide-menu">
+                        <li class="side-menu-label1"><a href="javascript:void(0)"></a></li>
+                        <li><a href="<?= base_url(); ?>Envios/" class="slide-item">Crear envio</a></li>
+                        <li><a href="<?= base_url(); ?>Envios/lista_envios" class="slide-item">Lista de envios</a></li>
                      </ul>
                   </li>
 

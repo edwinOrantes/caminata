@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-04-2023 a las 18:09:10
+-- Tiempo de generación: 15-05-2023 a las 01:12:28
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.0.25
 
@@ -35,29 +35,6 @@ CREATE TABLE `tbl_accesos` (
   `fechaAcceso` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `tbl_accesos`
---
-
-INSERT INTO `tbl_accesos` (`idAcceso`, `nombreAcceso`, `descripcionAcceso`, `estadoAcceso`, `fechaAcceso`) VALUES
-(1, 'Administrador', 'Acceso total al sistema.', 1, '2021-04-29 14:43:54'),
-(2, 'Auxiliar de Caja', 'Usuario que se encargara de cobros.', 1, '2021-12-04 14:24:44'),
-(3, 'Botiquin', 'Empleado del area de botiquin.', 1, '2021-05-03 17:17:17'),
-(4, 'Cuentas', 'Persona encargada de efectuar cuentas.', 1, '2021-06-15 15:29:53'),
-(5, 'Contabilidad', 'Encargado de llevar la contabilidad.', 1, '2021-06-15 15:30:32'),
-(6, 'Gerente', 'Encargado de la administracion del hospital.', 1, '2021-06-15 15:31:20'),
-(7, 'Laboratorio', 'Para empleados del laboratorio', 1, '2021-07-01 12:16:04'),
-(8, 'Recepcionista', 'Persona encargada de hacer cuentas ambulatorias', 1, '2021-07-09 16:23:36'),
-(9, 'Gerente', 'Gerente del hospital', 1, '2021-07-16 15:32:59'),
-(10, 'Cajera', 'Usuario que se encargara de cobros.', 1, '2021-12-04 14:28:34'),
-(11, 'Auxiliar de cuentas', 'Ayuda a realizar cuentas.', 1, '2022-01-07 20:54:05'),
-(12, 'ISBM', 'Consultas de precios', 1, '2022-01-25 15:11:32'),
-(13, 'Hemodiálisis ', 'Encargada de hacer cuentas de hemodiálisis.', 1, '2022-02-01 13:57:01'),
-(14, 'Rayos X', 'Para empleados de rayos x.', 1, '2022-02-19 15:27:44'),
-(15, 'Marketing', 'Encargada de marketing.', 1, '2022-08-01 14:06:32'),
-(16, 'Inventarios', 'Para la gestión de inventarios', 1, '2023-02-02 14:16:10'),
-(19, 'Testing', 'This is  a test', 1, '2023-04-08 23:24:51');
-
 -- --------------------------------------------------------
 
 --
@@ -74,22 +51,9 @@ CREATE TABLE `tbl_cargos` (
 --
 
 INSERT INTO `tbl_cargos` (`idCargo`, `nombreCargo`) VALUES
-(1, 'Ingeniero de Sistemas Informáticos'),
-(3, 'Lic. en Enfermería'),
-(4, 'Auxiliar de Enfermería'),
-(5, 'Enfermera'),
-(6, 'Contabilidad'),
-(7, 'Auxiliar de Limpieza'),
-(8, 'Gerente'),
-(9, 'Botiquín '),
-(10, 'Administrador de cuentas'),
-(11, 'Cajera'),
-(12, 'Laboratorio'),
-(13, 'Rayos X'),
-(14, 'ISBM'),
-(15, 'Auxiliar de Caja'),
-(16, 'Hemodiálisis '),
-(17, 'Marketing');
+(1, 'Administrador'),
+(2, 'Empacador'),
+(3, 'Gestor');
 
 -- --------------------------------------------------------
 
@@ -109,7 +73,8 @@ CREATE TABLE `tbl_destinos` (
 
 INSERT INTO `tbl_destinos` (`idDestino`, `nombreDestino`, `creadoDestino`) VALUES
 (1, 'Usulután', '2023-03-20 23:05:55'),
-(2, 'Los Angeles', '2023-03-20 23:05:55');
+(2, 'Los Angeles', '2023-03-20 23:05:55'),
+(3, 'Washington', '2023-05-13 22:15:25');
 
 -- --------------------------------------------------------
 
@@ -139,7 +104,12 @@ INSERT INTO `tbl_detalle_orden` (`idDetalle`, `idOrden`, `nombreArticulo`, `peso
 (2, 1, 'Pollo Campero', '10.00', '5.55', '55.50', 'Pollo cocinado', '', 1, '2023-03-25 23:47:46'),
 (3, 1, 'Bolsa de churros', '50.00', '2.60', '130.00', 'Full churros', '', 1, '2023-03-26 23:34:29'),
 (4, 1, 'Pampers', '10.00', '4.66', '46.60', 'Pampers de los finos', '', 1, '2023-03-26 23:40:55'),
-(5, 1, 'Ropa de nño', '8.00', '7.00', '56.00', 'N/A', '', 1, '2023-04-07 19:55:31');
+(5, 1, 'Ropa de nño', '8.00', '7.00', '56.00', 'N/A', '', 1, '2023-04-07 19:55:31'),
+(6, 2, 'Charamuscas', '5.00', '2.50', '12.50', 'Mercadería congelada', '', 1, '2023-04-30 21:55:32'),
+(7, 3, 'Pulsera', '1.00', '25.00', '25.00', 'Oro solido', '', 1, '2023-04-30 22:08:29'),
+(8, 3, 'Anillo', '1.00', '25.00', '25.00', 'Oro solido', '', 1, '2023-04-30 22:08:35'),
+(9, 3, 'Tobillera', '1.00', '25.00', '25.00', 'Oro solido', '', 1, '2023-04-30 22:08:47'),
+(10, 3, 'Play Station', '10.00', '15.00', '150.00', 'Equipo nuevo', '', 1, '2023-04-30 22:09:14');
 
 -- --------------------------------------------------------
 
@@ -163,7 +133,7 @@ CREATE TABLE `tbl_emisores` (
 --
 
 INSERT INTO `tbl_emisores` (`idCliente`, `codigoCliente`, `nombreCliente`, `documentoCliente`, `telefonoCliente`, `direccionCliente`, `creadoCliente`, `estadoCliente`) VALUES
-(1, 1000, 'Juan Antonio Campos Sanchez', '47856946', '70152634', 'Barrio el Calvario, Usulutan', '2023-03-20 23:08:03', 1),
+(1, 1000, 'Juan Antonio Campos Sanchez', '47856946', '78956236', 'Barrio el Calvario, Usulutan', '2023-03-20 23:08:03', 1),
 (2, 1001, 'Flor de Maria Fuentes Saravia', '56987456', '78956321', 'Santa Maria, Usulutan', '2023-03-20 23:08:40', 1),
 (3, 1002, 'Carmen del Cid Medrano', '05123698', '74569812', 'El centro, Usulutan', '2023-03-21 04:04:33', 1);
 
@@ -191,28 +161,9 @@ CREATE TABLE `tbl_empleados` (
 
 INSERT INTO `tbl_empleados` (`idEmpleado`, `nombreEmpleado`, `edadEmpleado`, `telefonoEmpleado`, `cargoEmpleado`, `sexoEmpleado`, `estadoEmpleado`, `direccionEmpleado`, `ingresoEmpleado`) VALUES
 (1, 'Edwin Alexander Cortez Orantes', 29, '6310-0397 ', 1, 'Masculino', 1, 'Usulután', '2021-01-04 06:00:00'),
-(3, 'Carla Isolina', 27, '7537-3424 ', 9, 'Femenino', 1, 'Usulután', '2020-07-01 06:00:00'),
-(4, 'Carla Marisa ', 21, '7193-3931', 9, 'Femenino', 1, 'Usulután', '2020-07-01 06:00:00'),
-(5, 'Catalina de Jesús', 42, '7492-2204 ', 9, 'Femenino', 1, 'Canton el Palmital, Ozatlan, Usulután', '2016-08-08 06:00:00'),
-(6, 'Elena Abigail', 29, '7927-8472', 10, 'Femenino', 1, 'Usulután', '2016-08-22 06:00:00'),
-(7, 'Jacquelinne Vanessa', 35, '7870-0107', 11, 'Femenino', 1, 'Usulután', '2020-07-01 06:00:00'),
-(8, 'Alba Rosa ', 35, '7043-7030', 11, 'Femenino', 1, 'Colonia Las Colinas, Casa ·6', '2014-06-01 06:00:00'),
-(9, 'Wendy del Carmen', 27, '7244-5673', 11, 'Femenino', 1, 'Colonia El Milagro, Lote 8, Poligono 10, La Poza', '2021-06-15 06:00:00'),
-(10, 'Claudia Patricia ', 28, '7323-4541', 11, 'Femenino', 1, 'Colonia Saravia', '2020-09-21 06:00:00'),
-(11, 'Carlos Miguel', 34, '7747-1360', 6, 'Masculino', 1, 'Colonia Espiritu Santo Calle Principal Casa # 40', '2020-09-03 06:00:00'),
-(12, 'Laboratorio', 25, '0000-0000', 12, 'Masculino', 1, 'Usulutan', '2021-01-01 06:00:00'),
-(13, 'Usuario', 28, '0000-0000', 8, 'Masculino', 1, 'Barrio El Calvario, Usulutan', '2020-11-23 06:00:00'),
-(14, 'Kriscia Iveth', 19, '7793-5538', 10, 'Femenino', 1, 'Canton Joya Ancha Arriba', '2021-09-22 06:00:00'),
-(15, 'Luis Fernando', 24, '7922-1812', 14, 'Masculino', 1, '-', '2021-03-26 06:00:00'),
-(16, 'Carla Ivette', 21, '7007-5534', 15, 'Femenino', 1, 'Cantón Ojo de Agua, Caserio San Jaime, Usulután, Usulután', '2022-01-11 06:00:00'),
-(17, 'Mirna Veronica', 37, '7955-3701', 16, 'Femenino', 1, 'Colonia Las Colinas', '2013-06-01 06:00:00'),
-(18, 'Rayos', 50, '0000-0000', 13, 'Femenino', 1, '6a Calle Ote #8, Usulután, El Salvador', '2000-01-01 06:00:00'),
-(19, 'Allison Esmeralda', 28, '7858-1702', 15, 'Femenino', 1, 'Residencial Las Veraneras, Poligono W, Casa 4', '2022-06-24 06:00:00'),
-(20, 'Silvia Leonor', 28, '7960-8566', 15, 'Femenino', 1, 'Entrada a Residencial San José', '2022-06-29 06:00:00'),
-(21, 'Hazel Josseline', 25, '7725-7607', 17, 'Femenino', 1, '6ta calle oriente B La parroquia #21', '2022-01-17 06:00:00'),
-(22, 'Jose Angel ', 26, '7031-9189', 1, 'Masculino', 1, 'Lot. Pueblo Nuevo KM112 Salida a San Miguel Usulutan', '2023-02-01 06:00:00'),
-(23, 'Axwell Alexander Cortez Rodrigues', 20, '7895-6789', 1, 'Masculino', 1, 'San Miguel', '2023-04-07 21:52:43'),
-(24, 'Chester Rodriguez', 25, '7895-6321', 4, 'Masculino', 0, 'San Miguel', '2023-04-07 22:31:02');
+(2, 'Carla Isolina', 27, '7537-3424 ', 2, 'Femenino', 1, 'Usulután', '2020-07-01 06:00:00'),
+(3, 'Carla Marisa Parada Soto', 21, '7193-3931', 3, 'Femenino', 1, 'Usulután', '2020-07-01 06:00:00'),
+(4, 'Catalina de Jesús Miranda Batres', 42, '7492-2204 ', 3, 'Femenino', 1, 'Canton el Palmital, Ozatlan, Usulután', '2016-08-08 06:00:00');
 
 -- --------------------------------------------------------
 
@@ -235,6 +186,30 @@ CREATE TABLE `tbl_empresa` (
 
 INSERT INTO `tbl_empresa` (`idEmpresa`, `nombreEmpresa`, `telefonoEmpresa`, `direccionEmpresa`, `logoEmpresa`, `creadaEmpresa`) VALUES
 (1, 'Agencia de viajes', '78956423', 'Usulutan', 'logo_empresa', '2023-04-16 16:05:57');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_envios`
+--
+
+CREATE TABLE `tbl_envios` (
+  `idEnvio` int(11) NOT NULL,
+  `gestorEnvio` int(11) NOT NULL,
+  `maletaEnvio` int(11) NOT NULL,
+  `paqueteEnvio` text NOT NULL,
+  `agregadoEnvio` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_envios`
+--
+
+INSERT INTO `tbl_envios` (`idEnvio`, `gestorEnvio`, `maletaEnvio`, `paqueteEnvio`, `agregadoEnvio`) VALUES
+(8, 3, 1, '1000-1', '2023-05-14 23:10:54'),
+(9, 3, 2, '1000-2', '2023-05-14 23:11:01'),
+(10, 4, 1, '1000-3', '2023-05-14 23:11:10'),
+(11, 4, 1, '1000-4', '2023-05-14 23:11:15');
 
 -- --------------------------------------------------------
 
@@ -322,6 +297,7 @@ CREATE TABLE `tbl_ordenes` (
   `direccionOrden` text NOT NULL,
   `observacionesOrden` text NOT NULL,
   `estadoOrden` int(11) NOT NULL DEFAULT 1,
+  `creoQR` int(11) NOT NULL DEFAULT 0,
   `creadaOrden` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -329,8 +305,33 @@ CREATE TABLE `tbl_ordenes` (
 -- Volcado de datos para la tabla `tbl_ordenes`
 --
 
-INSERT INTO `tbl_ordenes` (`idOrden`, `codigoOrden`, `fechaIngreso`, `emisorOrden`, `receptorOrden`, `destinoOrden`, `tipoPago`, `estadoPago`, `tipoServicio`, `otraDireccionOrden`, `gestorOrden`, `direccionOrden`, `observacionesOrden`, `estadoOrden`, `creadaOrden`) VALUES
-(1, 1000, '2023-03-20', 1, 1, 2, 'Efectivo', 'Pagado', 'Entrega', '', 1, '', 'Tratar con cuidado', 1, '2023-03-20 23:12:18');
+INSERT INTO `tbl_ordenes` (`idOrden`, `codigoOrden`, `fechaIngreso`, `emisorOrden`, `receptorOrden`, `destinoOrden`, `tipoPago`, `estadoPago`, `tipoServicio`, `otraDireccionOrden`, `gestorOrden`, `direccionOrden`, `observacionesOrden`, `estadoOrden`, `creoQR`, `creadaOrden`) VALUES
+(1, 1000, '2023-03-20', 1, 2, 2, 'Efectivo', 'Pagado', 'Entrega', '', 4, '', 'Tratar con cuidado', 1, 1, '2023-03-20 23:12:18'),
+(2, 1001, '2023-04-30', 1, 3, 1, 'Efectivo', 'Pagado', 'Entrega', 'Nueva granada, enfrente del estadio que esta por la radio.', 3, '', 'Tratar con cuidado', 1, 0, '2023-04-30 21:54:55'),
+(3, 1002, '2023-04-30', 3, 2, 1, 'Efectivo', 'Pagado', 'Recogida', '', 3, '', 'Cosas de oro', 1, 0, '2023-04-30 22:08:06');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_orden_qr`
+--
+
+CREATE TABLE `tbl_orden_qr` (
+  `idOrdenQr` int(11) NOT NULL,
+  `idOrden` int(11) NOT NULL,
+  `nombreQr` text NOT NULL,
+  `creadoQr` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_orden_qr`
+--
+
+INSERT INTO `tbl_orden_qr` (`idOrdenQr`, `idOrden`, `nombreQr`, `creadoQr`) VALUES
+(14, 1, '1000-1', '2023-05-14 23:10:28'),
+(15, 1, '1000-2', '2023-05-14 23:10:28'),
+(16, 1, '1000-3', '2023-05-14 23:10:28'),
+(17, 1, '1000-4', '2023-05-14 23:10:28');
 
 -- --------------------------------------------------------
 
@@ -483,7 +484,7 @@ CREATE TABLE `tbl_receptores` (
 --
 
 INSERT INTO `tbl_receptores` (`idCliente`, `codigoCliente`, `nombreCliente`, `documentoCliente`, `telefonoCliente`, `direccionCliente`, `creadoCliente`, `estadoCliente`) VALUES
-(1, 1000, 'Juan Antonio Campos Sanchez', '47856946', '70152634', 'Barrio el Calvario, Usulutan', '2023-03-20 23:08:03', 1),
+(1, 1000, 'Juan Antonio Campos Sanchez', '47856946', '78956236', 'Barrio el Calvario, Usulutan', '2023-03-20 23:08:03', 1),
 (2, 1001, 'Flor de Maria Fuentes Saravia', '56987456', '78956321', 'Santa Maria, Usulutan', '2023-03-20 23:08:40', 1),
 (3, 1002, 'Carmen del Cid Medrano', '05123698', '74569812', 'El centro, Usulutan', '2023-03-21 04:04:33', 1);
 
@@ -502,34 +503,6 @@ CREATE TABLE `tbl_usuarios` (
   `estadoUsuario` int(11) NOT NULL DEFAULT 1,
   `fechaUsuario` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `tbl_usuarios`
---
-
-INSERT INTO `tbl_usuarios` (`idUsuario`, `nombreUsuario`, `psUsuario`, `idEmpleado`, `idAcceso`, `estadoUsuario`, `fechaUsuario`) VALUES
-(1, 'Informatica', '0d01c3f03a5957680fae71ddb', 1, 1, 1, '2021-04-29 23:05:52'),
-(2, 'CARLA ORTEZ', 'ffc0d3e0050c7e80a4b74dc81', 3, 3, 1, '2021-05-03 23:17:36'),
-(3, 'CARLA PAREDES', '51bf195bf5654e4909e3166db', 4, 3, 1, '2021-06-15 21:35:21'),
-(4, 'CATALINA GOMEZ', '09f5e38cb53313959c5e28864', 5, 3, 1, '2021-06-15 21:37:21'),
-(5, 'ELENA CRUZ', '3f7f41fb8e972a91b38d19325', 6, 4, 1, '2021-06-15 21:39:02'),
-(6, 'ALBA RAMIREZ', '7f2264fd031a37eff93eee36c', 8, 2, 1, '2021-06-24 22:22:11'),
-(7, 'WENDY SERPAS', 'd5dff56e8607bbc8f678a2714', 9, 2, 1, '2021-06-24 22:29:17'),
-(8, 'JACQUELINNE TREJO', 'b6683b0b0fb3b20575b6fbfa9', 7, 10, 1, '2021-06-24 22:34:02'),
-(9, 'PATRICIA GARCIA', '6bbea091fbcbe4770f208a628', 10, 2, 1, '2021-06-26 01:40:06'),
-(10, 'CARLOS MARTINEZ', 'd2f0c294711426f440af6c188', 11, 5, 1, '2021-06-29 18:51:00'),
-(11, 'LABORATORIO', '6e3f560530f160dc58dcd01aa', 12, 7, 1, '2021-07-01 18:16:52'),
-(12, 'INVITADO', '7f807cfd0c0f23e81ff4c31e0', 13, 1, 1, '2021-07-16 21:33:33'),
-(13, 'KRISCIA SEGOVIA', 'e9337ab1ef7e2ef2b557c504b', 14, 11, 1, '2021-09-24 02:41:16'),
-(14, 'FERNANDO VARAONA', 'f92ee076bfaf8a653ba172adc', 15, 12, 1, '2022-01-10 20:50:16'),
-(15, 'CARLA LOPEZ ', 'bfa3ba9c72c2b00ee01e8376e', 16, 2, 1, '2022-01-11 22:04:09'),
-(16, 'MIRNA RAMIREZ', 'b9cc21fd2720e8433543d7083', 17, 13, 1, '2022-02-01 20:38:48'),
-(17, 'Rayos X', '94bc09728be5328b5e22ef02f', 18, 14, 1, '2022-02-19 21:28:05'),
-(18, 'ALLISON MARTINEZ', '9258d54363145d88d9007f71f', 19, 2, 1, '2022-07-06 18:35:43'),
-(19, 'SILVIA CAMPOS', '1fb2a1c37b18aa4611c3949d6', 20, 2, 1, '2022-07-06 19:08:16'),
-(20, 'HAZEL GRIMALDI', 'd7e3c58845a8fb04775ec5eab', 21, 15, 1, '2022-08-01 20:07:24'),
-(21, 'JOSE CHAVEZ', 'b8224ec7c1b07e5eff278cefb', 22, 16, 1, '2023-02-02 20:16:51'),
-(22, 'Testing', '202cb962ac59075b964b07152', 3, 3, 0, '2023-04-08 23:02:14');
 
 --
 -- Índices para tablas volcadas
@@ -578,6 +551,12 @@ ALTER TABLE `tbl_empresa`
   ADD PRIMARY KEY (`idEmpresa`);
 
 --
+-- Indices de la tabla `tbl_envios`
+--
+ALTER TABLE `tbl_envios`
+  ADD PRIMARY KEY (`idEnvio`);
+
+--
 -- Indices de la tabla `tbl_estado_orden`
 --
 ALTER TABLE `tbl_estado_orden`
@@ -594,6 +573,12 @@ ALTER TABLE `tbl_menu`
 --
 ALTER TABLE `tbl_ordenes`
   ADD PRIMARY KEY (`idOrden`);
+
+--
+-- Indices de la tabla `tbl_orden_qr`
+--
+ALTER TABLE `tbl_orden_qr`
+  ADD PRIMARY KEY (`idOrdenQr`);
 
 --
 -- Indices de la tabla `tbl_permisos`
@@ -621,25 +606,25 @@ ALTER TABLE `tbl_usuarios`
 -- AUTO_INCREMENT de la tabla `tbl_accesos`
 --
 ALTER TABLE `tbl_accesos`
-  MODIFY `idAcceso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `idAcceso` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_cargos`
 --
 ALTER TABLE `tbl_cargos`
-  MODIFY `idCargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idCargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_destinos`
 --
 ALTER TABLE `tbl_destinos`
-  MODIFY `idDestino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idDestino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_detalle_orden`
 --
 ALTER TABLE `tbl_detalle_orden`
-  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_emisores`
@@ -651,13 +636,19 @@ ALTER TABLE `tbl_emisores`
 -- AUTO_INCREMENT de la tabla `tbl_empleados`
 --
 ALTER TABLE `tbl_empleados`
-  MODIFY `idEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_empresa`
 --
 ALTER TABLE `tbl_empresa`
   MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_envios`
+--
+ALTER TABLE `tbl_envios`
+  MODIFY `idEnvio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_estado_orden`
@@ -675,7 +666,13 @@ ALTER TABLE `tbl_menu`
 -- AUTO_INCREMENT de la tabla `tbl_ordenes`
 --
 ALTER TABLE `tbl_ordenes`
-  MODIFY `idOrden` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idOrden` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_orden_qr`
+--
+ALTER TABLE `tbl_orden_qr`
+  MODIFY `idOrdenQr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_permisos`
@@ -693,7 +690,7 @@ ALTER TABLE `tbl_receptores`
 -- AUTO_INCREMENT de la tabla `tbl_usuarios`
 --
 ALTER TABLE `tbl_usuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

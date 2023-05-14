@@ -43,9 +43,16 @@ $costoTotal = 0;
                         </ol>
                     </div>
                     <div class="text-right">
-
-                        <a class="btn btn-info mt-3 text-white" data-bs-toggle="modal" data-bs-target="#crearEtiqueta" > Crear etiquetas <i class="fe fe-file"></i></a>
+                        <?php
+                            if($orden->creoQR == 0){
+                                echo '<a class="btn btn-info mt-3 text-white" data-bs-toggle="modal" data-bs-target="#crearEtiqueta" > Crear etiquetas <i class="fe fe-file"></i></a>';
+                            }else{
+                                echo '<a href="'.base_url().'Ordenes/etiqueta_pdf/'.$row->idOrden.'/" class="btn btn-info mt-3 text-white" target="blank"> Ver etiquetas <i class="fe fe-file"></i></a>';
+                            }
+                        ?>
+                        
                         <button class="btn btn-info mt-3" data-bs-toggle="modal" data-bs-target="#agregarArticulo" > Agregar articulos <i class="fe fe-plus"></i></button>
+                        <a class="btn btn-success mt-3" href="<?php echo base_url(); ?>Ordenes/"><i class="fe fe-arrow-left"></i> Volver </a>
                         
                     </div>
                 </div>
@@ -75,13 +82,19 @@ $costoTotal = 0;
                                         <td class="text-black"><strong>Receptor: </strong></td>
                                         <td><?php echo $orden->receptorOrden; ?></td>
                                         <td class="text-black"><strong>Total articulos : </strong></td>
-                                        <td><span class="badge bg-info badge-sm  me-1 mb-1 mt-1"><?php echo number_format($totalArticulos, 2); ?></span></td>
+                                        <td><span class="badge bg-info badge-sm  me-1 mb-1 mt-1"><?php echo $totalArticulos; ?></span></td>
                                     </tr>
                                     
                                     <tr>
                                         <td class="text-black"><strong>Destino: </strong></td>
-                                        <td><?php echo $orden->destinoOrden; ?></td>
+                                        <td colspan="5"><?php echo $orden->destinoOrden; ?></td>
                                     </tr>
+
+                                    <tr class="alert-info">
+                                        <td class="text-black"><strong>Gestor asignado: </strong></td>
+                                        <td colspan="5"><?php echo $orden->nombreEmpleado; ?></td>
+                                    </tr>
+
                                 </table>
                             </div>
                         </div>
@@ -310,6 +323,7 @@ $costoTotal = 0;
                                 <div class="col-md-12 mb-3">
                                     <label for="nombreArticulo">Cantidad</label>
                                     <input type="number" value="1" min="1" class="form-control" id="cantidadEtiquetas" name="cantidadEtiquetas" placeholder="Cantidad" required>
+                                    <input type="hidden" value="<?php echo $orden->codigoOrden; ?>" id="" name="codigoOrden">
                                     <input type="hidden" value="<?php echo $idOrden; ?>" id="idOrden" name="idOrden">
                                     <div class="valid-feedback">Muy bien!</div>
                                 </div>

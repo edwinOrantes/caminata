@@ -17,6 +17,8 @@
     });
   </script>
 <?php endif; ?>
+
+
 <!--app-content open-->
 <div class="main-content app-content mt-0">
     <div class="side-app">
@@ -150,9 +152,12 @@
                                         <label for="gestorOrden">Gestor asignado</label>
                                         <select class="form-control" id="gestorOrden" name="gestorOrden" required>
                                             <option value="">.:: Seleccionar ::.</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
+                                            <?php
+                                                foreach ($gestores as $row) {
+                                                    echo '<option value="'.$row->idEmpleado.'">'.$row->nombreEmpleado.'</option>';
+                                                }
+                                                
+                                            ?>
                                         </select>
                                         <div class="valid-feedback">Muy bien!</div>
                                     </div>

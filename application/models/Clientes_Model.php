@@ -53,7 +53,10 @@ class Clientes_Model extends CI_Model
         if($data != null){
             $sql = "UPDATE tbl_emisores SET nombreCliente = ?, documentoCliente = ?, telefonoCliente = ?, direccionCliente = ?
                     WHERE idCliente = ?";
+            $sql2 = "UPDATE tbl_receptores SET nombreCliente = ?, documentoCliente = ?, telefonoCliente = ?, direccionCliente = ?
+                    WHERE idCliente = ?";
             if($this->db->query($sql, $data)){
+                $this->db->query($sql2, $data);
                 return true;
             }else{
                 return false;

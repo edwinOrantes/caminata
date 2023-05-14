@@ -8,10 +8,10 @@ class Empleado_Model extends CI_Model {
         return $datos->result();
     }
 
-    public function obtenerCumpleaños(){
-        $sql = "SELECT idEmpleado, nombreEmpleado, ingresoEmpleado, nacimientoEmpleado FROM tbl_empleados ";
+    public function empleadosPorCargo($cargo = null){
+        $sql = "SELECT * FROM tbl_empleados where cargoEmpleado = '$cargo' ";
         $datos = $this->db->query($sql);
-        return $datos;
+        return $datos->result();
     }
 
     // Guardar un empleados

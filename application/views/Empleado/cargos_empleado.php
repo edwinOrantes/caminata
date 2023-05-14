@@ -65,8 +65,8 @@
 													$nombreCargo ='"'.$cargo->nombreCargo.'"';
 											?>
 											<tr>
-                                              <td scope="row"><?php echo $index; ?></td>
-                                              <td><?php echo $cargo->nombreCargo; ?></td>
+                                              <td class="text-center" scope="row"><?php echo $index; ?></td>
+                                              <td class="text-center"><?php echo $cargo->nombreCargo; ?></td>
                                               <td class="text-center">
                                               <?php
                                                   echo "<a onclick='actualizarCargo($id, $nombreCargo)' href='#actualizarCargo' data-bs-toggle='modal'><i class='fa fa-edit iconoPlus text-success'></i></a> ";

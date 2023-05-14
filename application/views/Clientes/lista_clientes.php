@@ -51,11 +51,11 @@
                                     <table class="table table-bordered text-nowrap border-bottom basic-datatable" id="tbl_clientes">
                                         <thead>
                                             <tr class="bg-primary">
-                                                <th class="border-bottom-0 text-white"><strong>Cliente</strong></th>
-                                                <th class="border-bottom-0 text-white"><strong>Teléfono</strong></th>
-                                                <th class="border-bottom-0 text-white"><strong>Documento</strong></th>
-                                                <th class="border-bottom-0 text-white"><strong>Dirección</strong></th>
-                                                <th class="border-bottom-0 text-white"><strong>Opción</strong></th>
+                                                <th class="border-bottom-0 text-center text-white"><strong>Cliente</strong></th>
+                                                <th class="border-bottom-0 text-center text-white"><strong>Teléfono</strong></th>
+                                                <th class="border-bottom-0 text-center text-white"><strong>Documento</strong></th>
+                                                <th class="border-bottom-0 text-center text-white"><strong>Dirección</strong></th>
+                                                <th class="border-bottom-0 text-center text-white"><strong>Opción</strong></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -63,11 +63,11 @@
                                                 foreach ($clientes as $row) {
                                                     if($row->estadoCliente == 1){                                            ?>
                                                     <tr>
-                                                        <td><?= $row->nombreCliente;?></td>
-                                                        <td><?= $row->telefonoCliente;?></td>
-                                                        <td><?= $row->documentoCliente;?></td>
-                                                        <td><?= $row->direccionCliente;?></td>
-                                                        <td>
+                                                        <td class="text-center"><?= $row->nombreCliente;?></td>
+                                                        <td class="text-center"><?= $row->telefonoCliente;?></td>
+                                                        <td class="text-center"><?= $row->documentoCliente;?></td>
+                                                        <td class="text-center"><?= $row->direccionCliente;?></td>
+                                                        <td class="text-center">
                                                             <input type="hidden" id="nombre" value="<?= $row->nombreCliente;?>">
                                                             <input type="hidden" id="telefono" value="<?= $row->telefonoCliente;?>">
                                                             <input type="hidden" id="documento" value="<?= $row->documentoCliente;?>">

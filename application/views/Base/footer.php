@@ -699,8 +699,8 @@
             <!-- select2 js -->
             <script src="<?php echo base_url(); ?>public/plugins/select2/select2.full.min.js"></script>
             <script src="<?php echo base_url(); ?>public/js/select2.js"></script>
-
             <!-- select2 js -->
+            
             <script src='<?php echo base_url(); ?>public/plugins/fullcalendar/moment.min.js'></script>
             <script src='<?php echo base_url(); ?>public/plugins/fullcalendar/fullcalendar.min.js'></script>
             <script src="<?php echo base_url(); ?>public/js/fullcalendar.js"></script>
